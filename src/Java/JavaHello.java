@@ -1,14 +1,9 @@
 package Java;
 
-import com.trucker.sdk.TKUser;
-import sun.util.resources.CalendarData_el;
-
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by kachesiji on 2016/5/17.
@@ -18,83 +13,93 @@ public class JavaHello {
         Student(String name) {
             this.name = name;
         }
+
         String name;
     }
 
     public static void main(String[] args) throws ParseException {
-        Calendar calendar = Calendar.getInstance();
-        String timeStamp = "1473864497678";
-        Date date =new Date(Long.parseLong(timeStamp));
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        calendar.setTime(date);
-        String[] weeks = {"日","一","二","三","四","五","六"};
-        String week ="";
-        switch (calendar.get(Calendar.DAY_OF_WEEK)) {
-            case Calendar.SUNDAY:
-                week = weeks[0];
+        switch (2) {
+            case 2:
+                String str = "ada";
+                System.out.println((long) str.substring(0, 1).charAt(0));
+                double a = 0.0;
+                System.out.println(0==a);
+                System.out.println(Double.compare(0,a));
                 break;
-            case Calendar.MONDAY:
-                week = weeks[1];
-                break;
-            case Calendar.TUESDAY:
-                week = weeks[2];
-                break;
-            case Calendar.WEDNESDAY:
-                week = weeks[3];
-                break;
-            case Calendar.THURSDAY:
-                week = weeks[4];
-                break;
-            case Calendar.FRIDAY:
-                week = weeks[5];
-                break;
-            case Calendar.SATURDAY:
-                week = weeks[6];
-                break;
-        }
-        System.out.println("周"+week);
-        System.out.println(sdf.format(calendar.getTime()));
-        String month = "";
-        String[] months = {"一","二","三","四","五","六","七","八","九","十","十一","十二"};
-        switch (calendar.get(Calendar.MONTH)){
-            case Calendar.JANUARY:
-                month = months[0];
-                break;
-            case Calendar.FEBRUARY:
-                month = months[1];
-                break;
-            case Calendar.MARCH:
-                month = months[2];
-                break;
-            case Calendar.APRIL:
-                month = months[3];
-                break;
-            case Calendar.MAY:
-                month = months[4];
-                break;
-            case Calendar.JUNE:
-                month = months[5];
-                break;
-            case Calendar.JULY:
-                month = months[6];
-                break;
-            case Calendar.AUGUST:
-                month = months[7];
-                break;
-            case Calendar.SEPTEMBER:
-                month = months[8];
-                break;
-            case Calendar.OCTOBER:
-                month = months[9];
-                break;
-            case Calendar.NOVEMBER:
-                month = months[10];
-                break;
-            case Calendar.DECEMBER:
-                month = months[11];
-                break;
-        }
-        System.out.println(month+"月");
+            default:
+                Calendar calendar = Calendar.getInstance();
+                String timeStamp = "1473864497678";
+                Date date = new Date(Long.parseLong(timeStamp));
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                calendar.setTime(date);
+                String[] weeks = {"日", "一", "二", "三", "四", "五", "六"};
+                String week = "";
+                switch (calendar.get(Calendar.DAY_OF_WEEK)) {
+                    case Calendar.SUNDAY:
+                        week = weeks[0];
+                        break;
+                    case Calendar.MONDAY:
+                        week = weeks[1];
+                        break;
+                    case Calendar.TUESDAY:
+                        week = weeks[2];
+                        break;
+                    case Calendar.WEDNESDAY:
+                        week = weeks[3];
+                        break;
+                    case Calendar.THURSDAY:
+                        week = weeks[4];
+                        break;
+                    case Calendar.FRIDAY:
+                        week = weeks[5];
+                        break;
+                    case Calendar.SATURDAY:
+                        week = weeks[6];
+                        break;
+                }
+                System.out.println("周" + week);
+                System.out.println(sdf.format(calendar.getTime()));
+                String month = "";
+                String[] months = {"一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"};
+                switch (calendar.get(Calendar.MONTH)) {
+                    case Calendar.JANUARY:
+                        month = months[0];
+                        break;
+                    case Calendar.FEBRUARY:
+                        month = months[1];
+                        break;
+                    case Calendar.MARCH:
+                        month = months[2];
+                        break;
+                    case Calendar.APRIL:
+                        month = months[3];
+                        break;
+                    case Calendar.MAY:
+                        month = months[4];
+                        break;
+                    case Calendar.JUNE:
+                        month = months[5];
+                        break;
+                    case Calendar.JULY:
+                        month = months[6];
+                        break;
+                    case Calendar.AUGUST:
+                        month = months[7];
+                        break;
+                    case Calendar.SEPTEMBER:
+                        month = months[8];
+                        break;
+                    case Calendar.OCTOBER:
+                        month = months[9];
+                        break;
+                    case Calendar.NOVEMBER:
+                        month = months[10];
+                        break;
+                    case Calendar.DECEMBER:
+                        month = months[11];
+                        break;
+                }
+                System.out.println(month + "月");
 
       /*  Calendar calendar1 = Calendar.getInstance();
         calendar1.add(Calendar.DATE,-1);
@@ -186,7 +191,7 @@ public class JavaHello {
         long newTimestamp = d.getTime();
         long timestamp =newTimestamp-oldTimestamp;
         System.out.println(timestamp);*/
-        //时间戳转化为Sting或Date
+                //时间戳转化为Sting或Date
         /*long current =  System.currentTimeMillis();
         long between = (1470585600000L - 1470211917952L) / 1000;//除以1000是为了转换成秒
         long day = between / (24 * 3600);
@@ -239,7 +244,8 @@ public class JavaHello {
         System.out.println(lat);
         lat = lat.split("\\.")[0];
         System.out.println(lat);*/
-    }
+        }
 
+    }
 
 }
