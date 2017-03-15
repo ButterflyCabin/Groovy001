@@ -13,13 +13,20 @@ public class Regex_BusinessLicenseNumber {
     private static String error_Businesslicense_Empty = "请输入营业执照注册号";
     public static String error_Businesslicense = "您输入的营业执照注册号有误，请核对后再输!";
     public static String error_Businesslicense_No = "您输入的营业执照注册号不足15位，请核对后再输!";
-    // 如下测试营业执照百度的
-    static String  test = "110108000000016" ; // 营业执照号
-    static String  test1 = "320300000174110" ; // 营业执照号
+    // 如下测试营业执照百度的13位：4419002334401，1305822900365
+    static String[] test = {
+            "310117003171688","330282602082220","430524600099555",
+            "350205200033663","320507000045918","440301104041144",
+            "440307811872564","130903000004802","370125200024527",
+            "330225000051892","340100000400528","445381600190918",
+            "441900001868015","310230000419464","440301103072002",
+            "320483000067847","110108000000016","320300000174110"
+    };
 
     public static void main(String[] args ){
-        System.out.println(test);
-        isBusinesslicense(test);
+        String temp = test[0];
+        System.out.println(temp);
+        isBusinesslicense(temp);
     }
 
     /**
@@ -36,13 +43,14 @@ public class Regex_BusinessLicenseNumber {
         String businesslicensePrex14 = businesslicense.substring(0,14);// 获取营业执照注册号前14位数字用来计算校验码
         String businesslicense15 = businesslicense.substring(14,businesslicense.length());// 获取营业执照号的校验码
         System.out.println(businesslicense15.equals(""+getCheckCode(getIntArrayForString(businesslicensePrex14)))); // 比较 填写的营业执照注册号的校验码和计算的校验码是否一致
-        if(1 == getCheckCode(getIntArrayForString(businesslicense))){// 传入15位 只校验营业执照的有效性推荐用这个
+        /*if(1 == getCheckCode(getIntArrayForString(businesslicense))){// 传入15位 只校验营业执照的有效性推荐用这个
             System.out.println(isBusinesslicense);
             return  isBusinesslicense;
         }else {
             System.out.println(error_Businesslicense);
             return error_Businesslicense;
-        }
+        }*/
+        return error_Businesslicense;
     }
 
     private static int[] getIntArrayForString(String str){
@@ -82,10 +90,10 @@ public class Regex_BusinessLicenseNumber {
                         result  = si % 10; // 返回1 表示是一个有效营业执照号
                     }
                 }
-                System.out.println(i+" ti="+ti+", si="+si+", cj="+cj+", pj="+pj);
+//                System.out.println(i+" ti="+ti+", si="+si+", cj="+cj+", pj="+pj);
             }
         }
-        System.out.println(tag+result);
+//        System.out.println(tag+result);
         return result;
     }
 }
