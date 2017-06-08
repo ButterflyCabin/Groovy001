@@ -1,5 +1,7 @@
 package Java;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,16 +11,18 @@ import java.util.Map;
  * Created by kachesiji on 2016/5/21.
  */
 class Regex_CreditCode {
+    // 正则
+    // [1-9A-GY]{1}[1239]{1}[1-5]{1}[0-9]{5}[0-9A-Z]{10}
 //    百度所得91350200M000000510,91350128M00000019A待调试
     static String[] creditCode = {
-        "91440300311906854A",
+        "91350200M000000510","91350128M00000019A","91350100M000100Y43",
         "91110105771583283D","91110000802100433B","91110108740084270C",
         "112302070019030687","91110108735106340Y","911101077776591113",
         "51610700305332460K","91440300359143307G","11610923MB2900168E",
         "1134082855783407XL","91341000MA2N0ABGXX","91110228397176695A",
         "91110111567495091J","51100000500019541K","11330283002982634F",
         "92510100MA61WJ3204","52610500MJU60350X1","91510000779827684C",
-        "1142092201131905X1","91350100M000100Y43","51140200MJ1693047P",
+        "1142092201131905X1","91440300311906854A","51140200MJ1693047P",
         "913101135696449862","91460600MA5RC30P9Y","11991000010647510A",
         "91110113766754543Y","121526004609138637","52440111MJK9980480",
         "91330200750364874C","123456789012345678","52120000MJ0529018E"
@@ -58,9 +62,10 @@ class Regex_CreditCode {
         }else{
             int sum =  sum(pre17s);
             int temp = sum%31;
-            temp = temp == 0 ? 31 : temp;
-            System.out.println(code[31-temp]+" "+(creditCode.substring(17,18).equals(code[31-temp]+"")?isCreditCode:error_CreditCode));
-            return creditCode.substring(17,18).equals(code[31-temp]+"")?isCreditCode:error_CreditCode;
+            temp = 31-temp;
+            temp = temp == 31 ? 0 : temp;
+            System.out.println("*** "+code[temp]+" "+(creditCode.substring(17,18).equals(code[temp]+"")?isCreditCode:error_CreditCode));
+            return creditCode.substring(17,18).equals(code[temp]+"")?isCreditCode:error_CreditCode;
         }
     }
 
@@ -69,11 +74,15 @@ class Regex_CreditCode {
      * @return
      */
     private static int sum(char[] chars){
+        System.out.println(pre17s);
+        System.out.println(JSON.toJSON(datas));
         int sum = 0;
         for(int i=0;i<chars.length;i++){
             int code = datas.get(chars[i]+"");
             sum+=power[i]*code;
+            System.out.println(chars[i] +": "+ code + " * " +power[i]+"="+ (code * power[i]));
         }
+        System.out.println(sum);
         return sum;
 
     }
