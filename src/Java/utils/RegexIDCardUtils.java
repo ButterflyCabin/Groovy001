@@ -1,9 +1,9 @@
-package Java;
+package Java.utils;
 
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class IDCardRegex {
+public class RegexIDCardUtils {
     /**
      * 省，直辖市代码表： { 11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",
      * 21:"辽宁",22:"吉林",23:"黑龙江",31:"上海",32:"江苏",
@@ -46,15 +46,6 @@ public class IDCardRegex {
     // 第18位校检码
     private static String verifyCode[] = {"1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"};
 
-    public static void main(String[] args) {
-        // 虚拟的
-        String[] cards = {"44522119940201887X", "15010219810707645X", "371326197911207560"};
-        for (int i = 0; i < cards.length; i++) {
-            String temp = cards[i];
-            System.out.println(temp);
-            isCard(temp);
-        }
-    }
 
     /**
      * 判断省份证是否符合身份证规则

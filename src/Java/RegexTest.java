@@ -1,6 +1,7 @@
 package Java;
 
 import Java.utils.RegexBusinessUtils;
+import Java.utils.RegexIDCardUtils;
 import org.junit.Test;
 
 /**
@@ -24,6 +25,17 @@ public class RegexTest {
             String temp = test[i];
             System.out.println(temp);
             RegexBusinessUtils.isBusinesslicense15(temp);
+        }
+    }
+
+    @Test // 测试身份证号
+    public  void testRegexIDCard(){
+        // 虚拟的
+        String[] cards = {"44522119940201887X", "15010219810707645X", "371326197911207560"};
+        for (int i = 0; i < cards.length; i++) {
+            String temp = cards[i];
+            System.out.println(temp);
+            RegexIDCardUtils.isCard(temp);
         }
     }
 
