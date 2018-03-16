@@ -33,7 +33,6 @@ public class RegexTest {
 
     @Test // 测试身份证号
     public void testRegexIDCard() {
-        // 虚拟的
         String[] cards = {
                 // 有效数据
                 "44522119940201887X", "15010219810707645X", "371326197911207560",
@@ -44,9 +43,11 @@ public class RegexTest {
         };
         for (int i = 0; i < cards.length; i++) {
             String temp = cards[i];
-            System.out.println("精确校验：" + temp + " " + IDCardUtils.isCard(temp, false) + " BirthDay：" + IDCardUtils.getBirthday(temp)
+            System.out.println("精确校验：" + temp + " " + IDCardUtils.isCard(temp, false)
+                    + " 性别：" + IDCardUtils.getIDCardGender(temp) + " BirthDay：" + IDCardUtils.getBirthday(temp)
                     + " 年：" + IDCardUtils.checkCardYear(temp) + " 月：" + IDCardUtils.checkCardMonth(temp) + " 日：" + IDCardUtils.checkCardDay(temp));
-            System.out.println("正则校验：" +temp + " " + IDCardUtils.isCard(temp, true) + " BirthDay：" + IDCardUtils.getBirthday(temp)
+            System.out.println("正则校验：" +temp + " " + IDCardUtils.isCard(temp, true)
+                    + " 性别：" + IDCardUtils.getIDCardGender(temp) +" BirthDay：" + IDCardUtils.getBirthday(temp)
                     + " 年：" + IDCardUtils.checkCardYear(temp) + " 月：" + IDCardUtils.checkCardMonth(temp) + " 日：" + IDCardUtils.checkCardDay(temp));
         }
     }

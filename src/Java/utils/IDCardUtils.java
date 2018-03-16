@@ -244,6 +244,16 @@ public class IDCardUtils {
     }
 
     /**
+     * 获取性别
+     *
+     * @param IDCard
+     * @return 1：男；0：女
+     */
+    public static int getIDCardGender(String IDCard) {
+        return Integer.parseInt(getStringForCard(IDCard, 16, 17)) % 2;
+    }
+
+    /**
      * 将身份证的每位和对应位的加权因子相乘之后，再得到和值
      *
      * @param IDCard
