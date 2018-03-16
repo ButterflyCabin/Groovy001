@@ -4,9 +4,6 @@ package Java.utils;
  * 15位营业执照注册号检验工具
  */
 public class BusinessUtils {
-    /**
-     * 营业执照注册号校验正确返回码
-     */
     public static String ERROR_COMMON = "您输入的营业执照注册号%s，请核对后再输!";
 
     /**
